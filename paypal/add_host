@@ -1,0 +1,1 @@
+/usr/lib/vmware-vcli/apps/host/hostops.pl --server vcmlvs02.qa.paypal.com --username Administrator --password Welcome511 --cluster $1 --operation addhost --target_username root --target_password welcome511 --target_host $2 

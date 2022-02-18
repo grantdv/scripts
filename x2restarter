@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+#This script will find and kill an existing X2vnc process and start another one.
+
+#Find the Process
+print "Finding and Killing\n";
+system ("ps auxw|grep x2vnc |awk '{print\$2}'|xargs kill -9");
+
+#Start a new one
+print "Starting\n";
+system ("x2vnc -east 192.168.0.19:0 -passwd /home/grantd/.vnc/passwd &");
+

@@ -1,0 +1,139 @@
+echo "Congratulations! Your application to become an eBusiness Solutions
+Provider with AIS Media, the nation's leading eBSP(SM) Licensor has
+been approved. Your new Master Web Hosting Account has been configured 
+and activated on our server.
+
+This message contains the technical information for your account. Please 
+read this entire message carefully, print it, and store it in a safe place for future reference.
+
+If you share a computer with another person and they can access your email,
+we recommend that after printing this email, you delete this email for security reasons.
+
+Only you can distribute your password to others. If you suspect that your password
+has been exposed to an unauthorized party, or you wish to change it, please use the 
+web-based control panel or contact AIS Media technical support via the channels listed 
+below as soon as possible.
+
+
+
+TECHNICAL SUPPORT
+-----------------------------------------------------------------------
+Our technical support section on our web site provides valuable
+information on a wide variety of topics related to your web hosting
+account. Information about Email client configuration, FTP client
+configuration, server configuration, supported features, and much more
+is available online 24x7x365.
+
+Many of our guides include step-by-step instructions with screen
+captures, providing you with a pictorial guide of what you should
+enter on your screen. You can access our technical support web page here:
+
+   http://www.aismedia.com/support/
+
+
+QUICK START EMAIL GUIDE
+-----------------------------------------------------------------------
+Email
+By default, every new web hosting account on our systems is
+configured with a default catch-all email box.  Any email that is
+not delivered to another box on your domain name will always be sent
+to the catch-all email box.  Since your website has no other email
+boxes configured at this time all email sent to your domain name
+will arrive in this box. Please reference the Help guide in your email
+client program for assistance in adding email accounts to your program.
+Email account names and passwords are located in CAMS. 
+
+
+Email Account Information
+
+  POP3 Server: mail.$1 
+  SMTP Server: use your ISP's outgoing/SMTP server
+
+
+IMPORTANT CONTACT INFORMATION
+-----------------------------------------------------------------------
+
+Email:
+
+* Technical Support (technical questions): support@aisprivatelabel.com
+* Customer Service (account questions/changes): cs@aisprivatelabel.com
+* Billing information (billing questions): billing@aisprivatelabel.com
+
+If you need technical support for your web hosting account, send an email
+to support@aisprivatelabel.com. You will be assigned a ticket number for
+your request, which helps us provide the best possible service and
+track your request through resolution. Please write this ticket
+number down and follow the directions provided by the ticketing system
+when replying to your issue.
+
+ALL SUPPORT REQUESTS MUST BE EMAILED TO support@aisprivatelabel.com !
+If you contact our technical support department and you do not have a
+ticket number, you will be directed to open a ticket by sending an
+email to support@aismedia.com before you can continue.
+
+AIS Media will respond to technical support inquiries within 1
+business day of your request. Accounts that are entitled to telephone
+technical support can speak with a technical support representative if
+their request is still open one business day after the ticket was received.
+
+All tickets received after standard business hours will be considered
+received at the start of business the following business day.
+
+
+
+YOUR eBSP ACCOUNT INFORMATION
+-----------------------------------------------------------------------
+
+eBSP Username: $2
+eBSP Password: $3
+   eBSP Login: http://ebsp.aisprivatelabel.com
+
+The  "eBSP Account Information" is the designated eBSP administration
+username and password.  You will use this username and password to log
+into CAMS and the eBSP Administrative Area, where you can add accounts,
+modify your template web page, access resources and more.
+
+
+SYSTEM POLICIES
+-----------------------------------------------------------------------
+The following offenses may result in the immediate termination of your
+web hosting account, with the possibility of prosecution to the fullest
+extent of applicable law:
+
+ 1) Transmission of Unsolicited Bulk Email (UBE) through your account,
+    website, or any equipment owned or operated by AIS Media.
+
+ 2) Attempts to compromise system security, including, but not limited
+    to: unauthorized portscanning, attempts to eavesdrop on network
+    traffic, and attempts to access the systems or accounts that you do
+    not have explicit authority to access.
+
+ 3) The use of equipment owned or operated by AIS Media for any
+    purposes unrelated to the services provided by AIS Media,
+    including, but not limited to: facilitation of a Denial of Service
+    (DoS) attack against any party, portscanning, pinging, or otherwise
+    probing any other party of system, and facilitating illegal
+    activities.
+
+These guidelines are here for your protection.  If you have any
+questions about any system policies, are worried you may be
+inadvertently violating a system policy, or you wish to determine if a
+specific activity is permitted under system policy, please contact
+our technical support department.
+
+Welcome to the AIS eBusiness Solutions Provider (eBSPSM) program! 
+We look forward to a long-term, mutually beneficial business relationship.  
+If you have any questions, comments or suggestions, please contact our office.
+
+Sincerely,
+
+AIS Private Label Support Team
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AIS Private Label Services
+A division of AIS Media, Inc.
+7000 Central Parkway NE, Suite 1700
+Atlanta, GA 30325
+Tel: +1 770.350.7998 / Fax: +1 770.350.9409
+TECHNICAL SUPPORT REQUESTS MUST BE SENT TO support@aisprivatelabel.com
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"|mail grantd@aismedia.com

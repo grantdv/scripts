@@ -1,0 +1,171 @@
+Disk vmhba0:0:0 /dev/sda (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:0 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:0 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:0 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:0 On  
+
+Disk vmhba0:0:1 /dev/sdb (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:1 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:1 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:1 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:1 Standby  
+
+Disk vmhba0:0:2 /dev/sdc (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:2 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:2 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:2 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:2 On  
+
+Disk vmhba0:0:3 /dev/sdd (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:3 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:3 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:3 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:3 Standby  
+
+Disk vmhba0:0:4 /dev/sde (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:4 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:4 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:4 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:4 On  
+
+Disk vmhba0:0:5 /dev/sdf (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:5 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:5 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:5 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:5 Standby  
+
+Disk vmhba0:0:6 /dev/sdg (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:6 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:6 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:6 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:6 On  
+
+Disk vmhba0:0:7 /dev/sdh (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:7 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:7 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:7 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:7 Standby  
+
+Disk vmhba0:0:8 /dev/sdi (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:8 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:8 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:8 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:8 On  
+
+Disk vmhba0:0:9 /dev/sdj (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:9 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:9 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:9 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:9 Standby  
+
+Disk vmhba0:0:10 /dev/sdk (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:10 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:10 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:10 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:10 On  
+
+Disk vmhba0:0:11 /dev/sdl (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:11 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:11 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:11 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:11 Standby  
+
+Disk vmhba0:0:12 /dev/sdm (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:12 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:12 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:12 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:12 On  
+
+Disk vmhba0:0:13 /dev/sdn (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:13 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:13 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:13 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:13 Standby  
+
+Disk vmhba0:0:14 /dev/sdo (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:14 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:14 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:14 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:14 On  
+
+Disk vmhba0:0:15 /dev/sdp (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:15 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:15 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:15 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:15 Standby  
+
+Disk vmhba0:0:16 /dev/sdq (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:16 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:16 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:16 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:16 On  
+
+Disk vmhba0:0:17 /dev/sdr (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:17 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:17 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:17 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:17 Standby  
+
+Disk vmhba0:0:18 /dev/sds (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:18 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:18 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:18 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:18 On  
+
+Disk vmhba0:0:19 /dev/sdt (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:19 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:19 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:19 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:19 Standby  
+
+Disk vmhba0:0:20 /dev/sdu (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:20 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:20 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:20 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:20 On  
+
+Disk vmhba0:0:21 /dev/sdv (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:21 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:21 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:21 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:21 Standby  
+
+Disk vmhba0:0:22 /dev/sdw (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:22 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:22 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:22 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:22 On  
+
+Disk vmhba0:0:23 /dev/sdx (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:23 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:23 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:23 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:23 Standby  
+
+Disk vmhba0:0:24 /dev/sdy (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:24 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:24 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:24 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:24 On  
+
+Disk vmhba0:0:25 /dev/sdz (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:25 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:25 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:25 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:25 Standby  
+
+Disk vmhba0:0:26 /dev/sdaa (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:26 On active preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:26 Standby  
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:26 Standby  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:26 On  
+
+Disk vmhba0:0:27 /dev/sdab (256000MB) has 4 paths and policy of Most Recently Used
+ FC 12:0.0 50060b0000c2761c<->200600a0b832099b vmhba0:0:27 Standby  preferred
+ FC 12:0.0 50060b0000c2761c<->200700a0b832099b vmhba0:1:27 On active 
+ FC 12:0.1 50060b0000c2761e<->200700a0b832099c vmhba1:0:27 On  
+ FC 12:0.1 50060b0000c2761e<->200600a0b832099c vmhba1:1:27 Standby  
+
+Disk vmhba2:0:0 /dev/cciss/c0d0 (69973MB) has 1 paths and policy of Fixed
+ Local 20:8.0 vmhba2:0:0 On active preferred
+

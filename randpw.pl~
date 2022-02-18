@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+@chars = (  "a" .. "z", "@","$","*");
+#@chars = (  "a" .. "z", "A" .. "Z", "0" .. "9");
+$password = join("", @chars[ map { rand @chars } ( 1 .. 8 ) ]);
+$salt = join("", @chars[ map { rand @chars } ( 1 .. 2 ) ]);
+print "Password: $password\n";
+$password = $word;
+
+$cpwd = crypt($word, $salt);
+print "Enrypted: $cpwd\n";
+
+
+#$pwd = (getpwuid ($<))[1];
+#$salt = substr $pwd, 0, 2; system "stty -echo";
+#print "Password: ";
+#chop($word = <STDIN>);
+#print "Salt: ";
+#chop($salt = <STDIN>);
+#print "\n";
+#system "stty echo";
+#if (crypt($word, $salt) ne $pwd) {
+#            die "Sorry...\n";
+#    } else {
+#                print "ok\n";
+#        }

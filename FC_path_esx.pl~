@@ -1,0 +1,48 @@
+#!/usr/bin/perl 
+#===============================================================================
+#
+#         FILE:  FC_path_esx.pl
+#
+#        USAGE:  ./FC_path_esx.pl 
+#
+#  DESCRIPTION:  This script will change the paths to Fixed and then set the preferred path.
+#
+#      OPTIONS:  ---
+# REQUIREMENTS:  ---
+#         BUGS:  ---
+#        NOTES:  ---
+#       AUTHOR:  Grant Della Vecchia <grant.dellavecchia@cnn.com>
+#      COMPANY:  Turner (ServerOps)
+#      VERSION:  1.0
+#      CREATED:  11/14/07 08:25:11 EST
+#     REVISION:  ---
+#===============================================================================
+
+#use warnings;
+
+#Variables-------------------------------------------------
+#$tmpfile = ".out.tmp";
+$tmpfile = "mpath.out";
+$num = "4";
+#End-------------------------------------------------------
+
+#Get the number of luns by running the esxcfg-mpath -l > .out.tmp
+if (!-e $tmpfile) {
+	system "esxcfg-mpath -l > $tmpfile";
+}
+open (TMP, "$tmpfile");
+while (<TMP>) {
+	@lines = split(/ /,$_);
+	if ($lines[1] =~ m/^vmhba0|1./) {
+		print "esxcfg-mpath --policy=fixed --lun=$lines[1]\n";
+		print "esxcfg-mpath --preferred ";
+		print "lun=$lines[1] ";
+		}
+	if ($lines[4] =~ m/^vmhba0|1./) {
+		if ($lines[6] =~ m/active/) {
+			print "path=$lines[4]\n";
+		}
+	}
+}
+
+

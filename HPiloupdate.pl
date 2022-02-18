@@ -1,0 +1,166 @@
+#!/usr/bin/perl 
+#===============================================================================
+#
+#         FILE:  HPiloupdate.pl
+#
+#        USAGE:  ./HPiloupdate.pl 
+#
+#  DESCRIPTION:  This script will log into the OA for the blades and update the firmware for all the blades in the chassis.
+#
+#      OPTIONS:  ---
+# REQUIREMENTS:  ---
+#         BUGS:  ---
+#        NOTES:  ---
+#       AUTHOR:  Grant Della Vecchia <grant.dellavecchia@cnn.com>
+#      COMPANY:  Turner (ServerOps)
+#      VERSION:  2.3
+#      CREATED:  08/13/2007 10:13:21 EDT
+#     REVISION:  ---
+#===============================================================================
+
+use warnings;
+use Expect;
+@hosts=`cat HPBlades`; #<-- File name with a list of blade chassis.
+$fwversion="latest_ilo.bin"; #<-- static link on Web pointing to the latest firmware version for the iLO.
+$pass = "M3tztl1-"; #<-- Admin password for the blade chassis.
+print "Function?\n1=iLO update\n2=Add admin user\n3=Collect Blade info\n4=Update OA\n5=Change Administrator Password\n6=Enable Alertmail\n"; #<-- What do you want to do?
+chomp($func=<STDIN>);
+if ($func == 1 ){
+	update();
+}elsif ($func == 2 ) {
+        admin();
+}elsif ($func == 3) {
+ 	info();
+}elsif ($func == 4) {
+ 	update_oa();
+}elsif ($func == 5) {
+ 	change_admin();
+}elsif ($func == 6) {
+ 	enable_alertmail();
+}else{
+	print "I do not know what you are trying to do\n";
+	die;
+}	
+
+#Expect code
+$Expect::Log_Stdout=0;
+
+sub info { #<-- This sub routine will collect some basic info about each blade in the chassis.
+	$cmd = "/usr/bin/ssh -l admin";
+	my $stdin = Expect->exp_init(\*STDIN);
+	print "@hosts\n";
+	foreach $host (@hosts) {
+		chomp($host);
+                print "Cmd = $cmd $host\n";
+                $ssh = Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";
+                $ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";
+                print $ssh "$pass\r";
+                if (! $ssh->expect(5,'-re',"$host> ")) {print "Could not get Prompt\n"; next; };
+                print $ssh "show server list\r";
+		sleep 3;
+		$ssh->expect(5,'-re',"$host> ") || die "Never got prompt on host3 , $!\n";;
+		print $ssh "exit\r";
+		$ssh->hard_close();
+	}
+}
+sub admin { #<-- This sub routine will add the admin user to each blade iLO in the chassis.
+	$cmd = "/usr/bin/ssh -l admin";                                                                                                          
+	my $stdin = Expect->exp_init(\*STDIN);                                                                                                      
+	print "@hosts\n";                                                                                                                           
+	foreach $host (@hosts) {                                                                                                                    
+                chomp($host); 
+                print "Cmd = $cmd $host\n";                                                                                                             
+                $ssh = Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";                                                                     
+                $ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";                                                        
+                print $ssh "$pass\r";                                                                                                                   
+                if (! $ssh->expect(5,'-re',"$host> ")) {print "Could not get Prompt\n"; next; };
+                print $ssh "hponcfg ALL << end_marker\r";
+                print $ssh "<RIBCL VERSION=\"2.0\">\r	 <LOGIN USER_LOGIN=\"adminname\" PASSWORD=\"password\">\r	 <USER_INFO MODE=\"write\">\r		 <ADD_USER\r		 USER_NAME=\"admin\"\r		 USER_LOGIN=\"admin\"\r		 PASSWORD=\"M3tztl1-\">\r		 <ADMIN_PRIV value =\"Yes\"/>\r		 <REMOTE_CONS_PRIV value =\"Yes\"/>\r		 <RESET_SERVER_PRIV value =\"Yes\"/>\r		 <VIRTUAL_MEDIA_PRIV value =\"Yes\"/>\r	 </ADD_USER>\r	 </USER_INFO>\r</LOGIN>\rend_marker\r";
+                $ssh->expect(300,'-re',"$host>");
+                print $ssh "exit\r";                                                                                                                    
+                $ssh->hard_close();
+	}
+}
+sub update { #<-- This sub routine will update the iLO firmware on each blade that is in a chassis.
+        $cmd = "/usr/bin/ssh -l admin";
+        my $stdin = Expect->exp_init(\*STDIN);
+        print "@hosts\n";
+        foreach $host (@hosts) {
+                chomp($host);
+                print "Cmd = $cmd $host\n";
+                $ssh=Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";
+                $ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";                                                        
+		print $ssh "$pass\r";                                                                                                                   
+		if (! $ssh->expect(5,'-re',"$host> ")) {print "Could not get Prompt\n"; next; };
+		print $ssh "hponcfg ALL << end_marker\r";
+		print $ssh "<RIBCL VERSION=\"2.0\">\r  <LOGIN USER_LOGIN=\"Dontcare\" PASSWORD=\"UsingAutologin\">\r    <RIB_INFO MODE=\"write\">\r      <UPDATE_RIB_FIRMWARE IMAGE_LOCATION=\"http://10.165.244.17/hpupdate/$fwversion\"/>\r    </RIB_INFO>\r  </LOGIN>\r</RIBCL>\rend_marker\r";
+		$ssh->expect(300,'-re',"$host>");
+		print $ssh "exit\r";                                                                                                                    
+		$ssh->hard_close();
+        }
+}
+sub update_oa { #<-- This subroutine will update the OA firmware (both OA's) on the blade chassis.
+        $cmd = "/usr/bin/ssh -l admin";
+        my $stdin = Expect->exp_init(\*STDIN);
+        print "@hosts\n";
+        foreach $host (@hosts) {
+                chomp($host);
+                print "Cmd = $cmd $host\n";
+                $ssh=Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";
+                $ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";                                                        
+		print $ssh "$pass\r";                                                                                                                   
+		if (! $ssh->expect(5,'-re',"$host> ")) {print "Could not get Prompt\n"; next; };
+                print $ssh "update image http://10.165.244.17/hpupdate/latest_oa.bin\r";
+                $ssh->expect(500,'-re',"$host>");
+		print $ssh "exit\r";                                                                                                                    
+		$ssh->hard_close();
+        }
+}
+sub change_admin { #<-- This sub routine will change the Administrator password on the blade iLO's to the current webfarm password.
+        print "Administrator Password?:";
+        chomp($adpass=<STDIN>);
+        $cmd = "/usr/bin/ssh -l admin";
+        my $stdin = Expect->exp_init(\*STDIN);
+        print "@hosts\n";
+        foreach $host (@hosts) {
+                chomp($host);
+                print "Cmd = $cmd $host\n";
+                $ssh=Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";
+                $ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";                                                        
+		print $ssh "$pass\r";                                                                                                                   
+		if (! $ssh->expect(5,'-re',"$host> ")) {print "Could not get prompt\n"; next; };
+                print $ssh "hponcfg ALL << end_marker\r";
+                print $ssh "<RIBCL VERSION=\"2.0\">\r  <LOGIN USER_LOGIN=\"Dontcare\" PASSWORD=\"UsingAutologin\">\r    <USER_INFO MODE=\"write\">\r      <MOD_USER USER_LOGIN=\"Administrator\">\r       <PASSWORD value=\"$adpass\"/>\r      </MOD_USER>\r      </USER_INFO>\r  </LOGIN>\r</RIBCL>\rend_marker\r";
+                $ssh->expect(300,'-re',"$host>");
+		print $ssh "exit\r";                                                                                                                    
+		$ssh->hard_close();
+        }
+}
+sub enable_alertmail { #<-- This sub routine will enable the alert mail setting for the Blade Chassis.
+        $cmd = "/usr/bin/ssh -l admin";
+        my $stdin = Expect->exp_init(\*STDIN);
+        print "@hosts\n";
+        foreach $host (@hosts) {
+                chomp($host);
+                print "Cmd = $cmd $host\n";
+                $ssh=Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";
+                $ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";                                                        
+		print $ssh "$pass\r";                                                                                                                   
+		if (! $ssh->expect(5,'-re',"$host> ")) { print "Could not get prompt\n";  next; } ;
+                print $ssh "set alertmail mailbox hpblade-warn\@web.turner.com\n";
+                if (! $ssh->expect(5,'-re',"$host> ")) { print "Could not get prompt\n"; next; };
+                print $ssh "set alertmail senderdomain turner.com\n";
+                if (! $ssh->expect(5,'-re',"$host> ")) { print "Could not get prompt\n"; next; };
+                print $ssh "set alertmail smtpserver 10.165.244.17\n";
+                if (! $ssh->expect(5,'-re',"$host> ")) { print "Could not get prompt\n"; next; };
+                print $ssh "enable alertmail\n";
+                $ssh->expect(300,'-re',"$host>");
+		print $ssh "exit\r";                                                                                                                    
+		$ssh->hard_close();
+        }
+}
+#Change Log
+#7-3-08 Added Comments
+#7-3-08 Change from Die on error to next.
+#7-2-08 Added Enabling Email Alerts.
+#7-1-08 Added iLO Update, OA Update, Change Admin Password

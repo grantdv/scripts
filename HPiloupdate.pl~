@@ -1,0 +1,88 @@
+#!/usr/bin/perl 
+#===============================================================================
+#
+#         FILE:  HPiloupdate.pl
+#
+#        USAGE:  ./HPiloupdate.pl 
+#
+#  DESCRIPTION:  This script will log into the OA for the blades and update the firmware for all the blades in the chassis.
+#
+#      OPTIONS:  ---
+# REQUIREMENTS:  ---
+#         BUGS:  ---
+#        NOTES:  ---
+#       AUTHOR:  Grant Della Vecchia <grant.dellavecchia@cnn.com>
+#      COMPANY:  Turner (ServerOps)
+#      VERSION:  1.0
+#      CREATED:  08/13/2007 10:13:21 EDT
+#     REVISION:  ---
+#===============================================================================
+
+use warnings;
+use Expect;
+#@hosts=@ARGV;
+@hosts=`cat HPBlades`;
+#Usage
+#Ask for Password
+#print "Password?:";
+#chomp($pwd=<STDIN>);
+$pwd = "M3tztl1-";
+#Collect Server Names
+#What are we doing?
+print "Function?\n1=iLO update\n2=Add admin user\n3=Collect Blade info\n";
+chomp($func=<STDIN>);
+if ($func == 1 ){
+	update();
+}elsif ($func == 2 ) {
+    admin();
+}elsif ($func == 3) {
+ 	info();
+}else{
+	print "I do not know what you are trying to do\n";
+	die;
+}	
+#Ask which blades to update or ALL?
+#Name of firmware image?
+
+#Expect code
+$Expect::Log_Stdout=0;
+
+sub info {
+	my $pass = "$pwd";
+	#my $newpass = "test";
+	my $cmd = "/usr/bin/ssh -l admin";
+	my $stdin = Expect->exp_init(\*STDIN);
+	print "@hosts\n";
+	foreach $host (@hosts) {
+		chomp($host);
+        print "Cmd = $cmd $host\n";
+        $ssh = Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";
+        $ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";
+        print $ssh "$pass\r";
+        $ssh->expect(5,'-re',"$host> ") || die "Never got prompt on host1, $!\n";
+        print $ssh "show server list\r";
+		sleep 3;
+		$ssh->expect(5,'-re',"$host> ") || die "Never got prompt on host3 , $!\n";;
+		print $ssh "exit\r";
+		$ssh->hard_close();
+	}
+}
+sub admin {
+		my $pass = "$pwd";                                                                                                                          
+		my $cmd = "/usr/bin/ssh -l admin";                                                                                                          
+		my $stdin = Expect->exp_init(\*STDIN);                                                                                                      
+		print "@hosts\n";                                                                                                                           
+		foreach $host (@hosts) {                                                                                                                    
+		chomp($host); 
+		print "Cmd = $cmd $host\n";                                                                                                             
+		$ssh = Expect->spawn("$cmd $host") || die "Couldn't spawn ssh, $!";                                                                     
+		$ssh->expect(5,'-re','password:') || die "Didn't get correct password prompt\n";                                                        
+		print $ssh "$pass\r";                                                                                                                   
+		$ssh->expect(5,'-re',".> ") || die "Never got prompt on host, $!\n";
+		print $ssh "hponcfg ALL << end_marker\r";
+		print $ssh "<RIBCL VERSION=\"2.0\">\r	 <LOGIN USER_LOGIN=\"adminname\" PASSWORD=\"password\">\r	 <USER_INFO MODE=\"write\">\r		 <ADD_USER\r		 USER_NAME=\"admin\"\r		 USER_LOGIN=\"admin\"\r		 PASSWORD=\"M3tztl1-\">\r		 <ADMIN_PRIV value =\"Yes\"/>\r		 <REMOTE_CONS_PRIV value =\"Yes\"/>\r		 <RESET_SERVER_PRIV value =\"Yes\"/>\r		 <VIRTUAL_MEDIA_PRIV value =\"Yes\"/>\r	 </ADD_USER>\r	 </USER_INFO>\r</LOGIN>\rend_marker\r";
+		$ssh->expect(300,'-re',"$host>");
+		print $ssh "exit\r";                                                                                                                    
+		$ssh->hard_close();
+	}
+}

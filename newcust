@@ -1,0 +1,126 @@
+clear
+echo "cd /svc/data/d1/web/$1"
+echo "cp -r /svc/web/reseller-template/ebsp3_site_skeleton/ www/"
+echo "chown -R \`ls -ld www|awk '{print\$3}'\`:webowner www/"
+echo "chmod 777 www/templates_c/"
+echo "cat /svc/web/reseller-template/ebsp3_site_skeleton.vhost >> /svc/web/apache/conf/vhosts/$1.conf"
+echo "vi /svc/web/apache/conf/vhosts/$1.conf"
+echo "/usr/local/etc/rc.d/apache.sh graceful"
+#sleep 30
+#clear
+echo " "
+echo " "
+echo "Congratulations! Your application to become an eBusiness Solutions
+Provider with AIS Media, the nation's leading eBSP(SM) Licensor has
+been approved. Your new Virtual Private Server has been configured
+and activated.
+
+This message contains the technical information for your account.
+Please read this entire message carefully, print it, and store it in a safe
+place for future reference.
+
+If you share a computer with another person and they can access your
+email, we recommend that after printing this email, you delete this email for
+security reasons.
+
+Only you can distribute your password to others. If you suspect that
+your password has been exposed to an unauthorized party, or you wish to change it,
+please use the web-based control panel or contact AIS Media technical support via the
+channels listed below as soon as possible.
+
+
+
+TECHNICAL SUPPORT
+-----------------------------------------------------------------------
+Our knowledge based ticketing system is your gateway to a wealth of
+information and support team. Our system is designed to track your questions
+and allows you to contact subject matter experts by using ticketing queues.
+
+Once we have your account activated you will be able to access the ticketing
+system by using your approved email address. This is the only address
+authorized to access the knowledge based ticketing system. Gated ticketing
+queues offer you the ability to review your tickets and see past responses
+for better knowledge management. We also have an SLA (service level
+agreement) for response times through the system, which ensures prompt and
+dependable service.
+
+Your resources area also offers a wealth of knowledge and tools. Many of our
+guides include step-by-step instructions. This area was designed exclusively
+for our licensees and offers timely updates and communication from our
+staff.
+
+   Ticketing system access - ebsp.aismedia.com
+
+
+QUICK START EMAIL GUIDE
+-----------------------------------------------------------------------
+Email
+Please reference the Help guide in your email client
+program for assistance in adding email accounts to your program.
+Email account names and passwords are located in CAMS.
+
+
+Email Account Information
+
+  POP3 Server: mail.$1
+  SMTP Server: use your ISP's outgoing/SMTP server
+
+
+IMPORTANT CONTACT INFORMATION
+-----------------------------------------------------------------------
+
+If you need technical support for your web hosting account, visit the
+support area within the Resource area.
+
+You will be assigned a ticket number for your request, please write this
+ticket number down for reference should you need to contact our office.
+
+YOUR eBSP ACCOUNT INFORMATION
+-----------------------------------------------------------------------
+
+eBSP Username: $2 
+eBSP Password: $3
+eBSP Login: http://ebsp.aismedia.com
+
+The eBSP Account Information is the designated eBSP administration
+username and password.  You will use this username and password to log
+into the licensee extranet where you can access, CAMS, ODIN, Support,
+Resources and Account information.
+
+
+SYSTEM POLICIES
+-----------------------------------------------------------------------
+The following offenses may result in the immediate termination of your
+web hosting account, with the possibility of prosecution to the fullest
+extent of applicable law:
+
+ 1) Transmission of Unsolicited Bulk Email (UBE) through your account,
+    website, or any equipment owned or operated by AIS Media.
+
+ 2) Attempts to compromise system security, including, but not limited
+    to: unauthorized portscanning, attempts to eavesdrop on network
+    traffic, and attempts to access the systems or accounts that you do
+    not have explicit authority to access.
+
+ 3) The use of equipment owned or operated by AIS Media for any
+    purposes unrelated to the services provided by AIS Media,
+    including, but not limited to: facilitation of a Denial of Service
+    (DoS) attack against any party, portscanning, pinging, or otherwise
+    probing any other party of system, and facilitating illegal
+    activities.
+
+These guidelines are here for your protection.  If you have any
+questions about any system policies, are worried you may be
+inadvertently violating a system policy, or you wish to determine if a
+specific activity is permitted under system policy, please contact
+our technical support department.
+
+Welcome to the AIS eBusiness Solutions Provider (eBSP) program!
+We look forward to a long-term, mutually beneficial business
+relationship.
+If you have any questions, comments or suggestions, please contact our
+office.
+
+Sincerely,
+
+AIS eBSP Support Team"|mail grantd@aismedia.com

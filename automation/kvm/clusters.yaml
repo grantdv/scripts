@@ -1,0 +1,54 @@
+POOL:
+  3N:
+    pool3virt1:
+    pool3virt2:
+    pool3virt3:
+    pool3virt4:
+    pool3virt5:
+    pool3virt6:
+    pool3virt7:
+    pool3virt8:
+    pool3virt9:
+    pool3virt10:
+    pool3virt11:
+    pool3virt12:
+    pool3virt13:
+    pool3virt14:
+  SDC:
+    pools1virt5:
+    pools1virt6:
+    pools1virt7:
+    pools1virt8:
+    pools1virt9:
+    pools1virt10:
+    pools1virt11:
+    pools1virt12:
+    pools1virt13:
+    pools1virt14:
+    pools1virt15:
+    pools1virt16:
+    pools1virt17:
+    pools1virt18:
+DRUPALWEB:
+  8S:
+    drupal8virt1:
+    drupal8virt2:
+    drupal8virt3:
+    drupal8virt4:
+  SDC:
+    drupals1virt1:
+    drupals1virt2:
+    drupals1virt3:
+    drupals1virt4:
+DRUPALDB:
+  8S:
+    drupal8virtsan1:
+    drupal8virtsan2:
+  SDC:
+    drupals1virtsan1:
+    drupals1virtsan2:
+BCP:
+  SDC:
+    bcps1tmp3:
+    bcps1tmp4:
+    bcps1tmp5:
